@@ -1,0 +1,22 @@
+<div class="max-w-4xl mx-auto text-center">
+  <h1 class="text-4xl font-bold text-gray-900 mb-8">Welcome to Notes App</h1>
+  
+  <% if user_signed_in? %>
+    <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+      <h2 class="text-2xl font-semibold text-green-800 mb-4">You're logged in!</h2>
+      <p class="text-green-600 mb-4">Ready to start taking notes?</p>
+      <p class="text-sm text-gray-600">Coming soon: Create and manage your notes</p>
+    </div>
+  <% else %>
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4">Get Started</h2>
+      <p class="text-blue-600 mb-6">Create an account to start organizing your thoughts and ideas.</p>
+      <div class="space-x-4">
+        <%= link_to "Sign Up", new_user_registration_path, 
+                    class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium" %>
+        <%= link_to "Login", new_user_session_path, 
+                    class: "bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-medium" %>
+      </div>
+    </div>
+  <% end %>
+</div>
