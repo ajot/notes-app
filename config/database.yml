@@ -69,9 +69,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: notes_app_production
-    username: notes_app
-    password: <%= ENV["NOTES_APP_DATABASE_PASSWORD"] %>
+    database: <%= ENV.fetch("DATABASE_NAME") { "defaultdb" } %>
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "doadmin" } %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: notes_app_production_cache
