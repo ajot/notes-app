@@ -1,0 +1,32 @@
+name: notes-app
+region: nyc
+services:
+- name: web
+  github:
+    repo: ajot/notes-app
+    branch: main
+    deploy_on_push: true
+  run_command: ./bin/rails server -p 8080
+  environment_slug: ruby-on-rails
+  instance_count: 1
+  instance_size_slug: professional-xs
+  http_port: 8080
+  envs:
+  - key: RAILS_ENV
+    value: production
+  - key: RAILS_SERVE_STATIC_FILES
+    value: "true"
+  - key: RAILS_LOG_TO_STDOUT
+    value: "true"
+  - key: DATABASE_HOST
+    value: ror-notes-demo-do-user-23559503-0.e.db.ondigitalocean.com
+  - key: DATABASE_PORT
+    value: "25060"
+  - key: DATABASE_NAME
+    value: defaultdb
+  - key: DATABASE_USERNAME
+    value: doadmin
+  - key: DATABASE_PASSWORD
+    type: SECRET
+  - key: RAILS_MASTER_KEY
+    type: SECRET
